@@ -1,0 +1,28 @@
+{
+  "name": "agents-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "node --no-warnings $(which ts-node) src/index.ts",
+    "watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@langchain/langgraph": "^0.2.47",
+    "@langchain/openai": "^0.4.4",
+    "@solana/web3.js": "^1.98.0",
+    "dotenv": "^16.4.7",
+    "solana-agent-kit": "^1.4.8"
+  }
+}
