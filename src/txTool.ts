@@ -23,7 +23,8 @@ export class SolanaTxTool extends Tool {
       });
 
       const signature = txs[0];
-      const txData = await this.solanaKit.connection.getTransaction(signature.signature, {
+      const txData = await this.solanaKit.connection.getParsedTransaction(signature.signature, {
+        commitment: "confirmed",
         maxSupportedTransactionVersion: 0,
       });
 

@@ -46,7 +46,6 @@ const agent = createReactAgent({
     llm: new ChatOpenAI({
         model: "gpt-4o-mini",
     }),
-    // tools: []
     tools: solanaTools,
     prompt: `
     You are a helpful assistant that can help with Solana transactions and balances.
