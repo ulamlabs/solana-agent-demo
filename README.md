@@ -10,6 +10,13 @@ A demonstration of AI-powered Solana transactions using LangChain and Solana Age
 - 🤖 Interactive chat interface
 - 🔧 Automatic wallet generation (testnet only)
 
+## Resources
+This project demonstrates AI-agent capabilities using:
+- [LangChain's ReAct agent implementation](https://langchain-ai.github.io/langgraph/how-tos/create-react-agent/)
+- [LangGraph](https://langchain-ai.github.io/langgraph/) for agent orchestration
+- [Solana Agent Kit's](https://github.com/sendaifun/solana-agent-kit) transaction tools
+- GPT-4 for natural language processing
+
 ## Prerequisites
 - Node.js v18+
 - OpenAI API key
@@ -66,9 +73,3 @@ The agent currently supports these SPL tokens:
 ⚠️ Always test with small amounts first  
 ⚠️ Mainnet transactions are real financial operations  
 ⚠️ Never commit your `.env` file to version control
-
-This project demonstrates AI-agent capabilities using:
-- LangChain's ReAct agent implementation
-- Solana Agent Kit's transaction tools
-- GPT-4 for natural language processing
-
