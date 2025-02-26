@@ -15,7 +15,7 @@ This project demonstrates AI-agent capabilities using:
 - [LangChain's ReAct agent implementation](https://langchain-ai.github.io/langgraph/how-tos/create-react-agent/)
 - [LangGraph](https://langchain-ai.github.io/langgraph/) for agent orchestration
 - [Solana Agent Kit's](https://github.com/sendaifun/solana-agent-kit) transaction tools
-- GPT-4 for natural language processing
+- [OpenAI's API](https://platform.openai.com/docs/overview) for natural language processing
 
 ## Prerequisites
 - Node.js v18+
