@@ -23,36 +23,33 @@ import { getPrivateKey } from "./getPrivateKey";
 dotenv.config();
 
 const privateKey = getPrivateKey();
-
+const prompt = `
+You are a helpful assistant that can help with Solana transactions and balances.
+Tokens you can help with are: ${tokenList.map(token => `${token.ticker} (${token.mintAddress})`).join(", ")}
+`
 // Initialize Solana Agent Kit
-const solanaAgentKit = new SolanaAgentKit(
+const agentKit = new SolanaAgentKit(
     privateKey,
     "https://api.mainnet-beta.solana.com",
-    {
-        OPENAI_API_KEY: process.env.OPENAI_API_KEY,
-    }
-);
+    process.env.OPENAI_API_KEY!
+)
 
-const solanaTools = [
-    new SolanaBalanceOtherTool(solanaAgentKit),
-    new SolanaTransferTool(solanaAgentKit),
-    new SolanaTradeTool(solanaAgentKit),
-    new SolanaGetWalletAddressTool(solanaAgentKit),
-    new SolanaTxTool(solanaAgentKit),
-];
+const tools = [
+    new SolanaTransferTool(agentKit),
+    new SolanaTradeTool(agentKit),
+    new SolanaGetWalletAddressTool(agentKit),
+    new SolanaBalanceOtherTool(agentKit),
+    new SolanaTxTool(agentKit)
+]
 
 // Initialize Langchain Agent
 const agent = createReactAgent({
     llm: new ChatOpenAI({
-        model: "gpt-4o-mini",
+        model: 'gpt-4o-mini',
     }),
-    // tools: []
-    tools: solanaTools,
-    prompt: `
-    You are a helpful assistant that can help with Solana transactions and balances.
-    Tokens you can help with are: ${tokenList.map(token => `${token.ticker} (${token.mintAddress})`).join(", ")}
-    `
-});
+    tools: tools,
+    prompt: prompt
+})
 
 // Function to talk to the agent
 async function talkToAgent(question: string) {
